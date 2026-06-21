@@ -43,7 +43,7 @@ const projects: Project[] = [
       "Aplicação de gerenciamento de membros para organizações, com páginas, animações e interação.",
     detailedDescription:
       "Sistema de gerenciamento de membros para organizações acadêmicas, com autenticação, painel administrativo e CRUD completo. Backend em Node.js com MongoDB e frontend em React.",
-    tags: ["React", "Node.js", "MongoDB"],
+    tags: ["React", "Node.js", "ETL", "Python"],
     color: "#FFD700",
     image: "/sim-map-title.png",
     githubUrl: "https://github.com/LauaneMorais/SimMAP.git",
@@ -58,7 +58,7 @@ const projects: Project[] = [
       "Jogo avaliativo para a disciplina de Programação Orientada a Objetos.",
     detailedDescription:
       "Jogo educativo desenvolvido em Java com JavaSwing para avaliação na disciplina de POO. Inclui mecânicas de quiz, sistema de pontuação e interface gráfica temática olímpica.",
-    tags: ["Java", "JavaSwing", "Game Design"],
+    tags: ["Java", "JavaSwing", "Game Design", "GIT"],
     color: "#9B30FF",
     image: "/ao-title.png",
     githubUrl: "https://github.com/LauaneMorais/ascensao-olimpiana.git",
