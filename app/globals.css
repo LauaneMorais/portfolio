@@ -1,0 +1,271 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --background: #0D0015;
+  --foreground: #FFFFFF;
+  --card: #1A0029;
+  --card-foreground: #FFFFFF;
+  --popover: #1A0029;
+  --popover-foreground: #FFFFFF;
+  --primary: #6E00B3;
+  --primary-foreground: #FFFFFF;
+  --secondary: #3C0061;
+  --secondary-foreground: #FFFFFF;
+  --muted: #2D0047;
+  --muted-foreground: #B388D1;
+  --accent: #FF1493;
+  --accent-foreground: #FFFFFF;
+  --destructive: #FF3366;
+  --destructive-foreground: #FFFFFF;
+  --border: #4A0075;
+  --input: #2D0047;
+  --ring: #9B30FF;
+  --chart-1: #6E00B3;
+  --chart-2: #FF1493;
+  --chart-3: #00D4FF;
+  --chart-4: #FFD700;
+  --chart-5: #FF6B35;
+  --radius: 0.5rem;
+  --neon-purple: #9B30FF;
+  --neon-pink: #FF1493;
+  --neon-cyan: #00D4FF;
+  --neon-yellow: #FFD700;
+}
+
+@theme inline {
+  --font-sans: 'Bebas Neue', 'Anton', sans-serif;
+  --font-mono: 'Space Mono', monospace;
+  --font-display: 'Orbitron', sans-serif;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-background text-foreground;
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+}
+
+/* Responsive section utilities */
+.section-padding {
+  @apply py-16 sm:py-20 md:py-20 lg:py-24;
+}
+
+.section-container {
+  @apply max-w-7xl xl:max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8 w-full;
+}
+
+.section-shell {
+  @apply relative overflow-hidden flex flex-col py-16 sm:py-20 md:py-20 lg:py-24;
+}
+
+.section-inner {
+  @apply relative z-10 max-w-7xl xl:max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8 w-full flex flex-col justify-center flex-1;
+}
+
+.section-stack {
+  @apply flex flex-col gap-10 sm:gap-12 lg:gap-16;
+}
+
+.section-title {
+  @apply font-[family-name:var(--font-bebas)] text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl text-white leading-none;
+}
+
+@media (max-width: 639px) {
+  .diagonal-stripes {
+    background: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 6px,
+      rgba(110, 0, 179, 0.12) 6px,
+      rgba(110, 0, 179, 0.12) 12px
+    );
+  }
+
+  .persona-border {
+    border-width: 2px;
+    box-shadow:
+      inset 0 0 12px rgba(110, 0, 179, 0.3),
+      0 0 12px rgba(110, 0, 179, 0.5);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-float,
+  .animate-pulse-glow,
+  .animate-star-spin,
+  .animate-text-flicker {
+    animation: none;
+  }
+
+  .glitch::before,
+  .glitch::after {
+    animation: none;
+  }
+}
+
+/* Custom Persona-style animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(5deg); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px var(--primary), 0 0 40px var(--primary); }
+  50% { box-shadow: 0 0 40px var(--accent), 0 0 80px var(--accent); }
+}
+
+@keyframes slide-diagonal {
+  0% { transform: translateX(-100%) translateY(100%); }
+  100% { transform: translateX(100%) translateY(-100%); }
+}
+
+@keyframes star-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes text-flicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animate-star-spin {
+  animation: star-spin 20s linear infinite;
+}
+
+.animate-text-flicker {
+  animation: text-flicker 0.1s ease-in-out infinite;
+}
+
+/* Diagonal stripes pattern */
+.diagonal-stripes {
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 10px,
+    rgba(110, 0, 179, 0.1) 10px,
+    rgba(110, 0, 179, 0.1) 20px
+  );
+}
+
+/* Persona-style border */
+.persona-border {
+  border: 3px solid var(--primary);
+  box-shadow: 
+    inset 0 0 20px rgba(110, 0, 179, 0.3),
+    0 0 20px rgba(110, 0, 179, 0.5);
+}
+
+/* Glitch effect */
+.glitch {
+  position: relative;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.glitch::before {
+  left: 2px;
+  text-shadow: -2px 0 #FF1493;
+  clip: rect(24px, 550px, 90px, 0);
+  animation: glitch-anim 2s infinite linear alternate-reverse;
+}
+
+.glitch::after {
+  left: -2px;
+  text-shadow: -2px 0 #00D4FF;
+  clip: rect(85px, 550px, 140px, 0);
+  animation: glitch-anim 2s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim {
+  0% { clip: rect(42px, 9999px, 44px, 0); }
+  5% { clip: rect(12px, 9999px, 59px, 0); }
+  10% { clip: rect(48px, 9999px, 29px, 0); }
+  15% { clip: rect(42px, 9999px, 73px, 0); }
+  20% { clip: rect(63px, 9999px, 27px, 0); }
+  25% { clip: rect(34px, 9999px, 55px, 0); }
+  30% { clip: rect(86px, 9999px, 73px, 0); }
+  35% { clip: rect(20px, 9999px, 20px, 0); }
+  40% { clip: rect(26px, 9999px, 60px, 0); }
+  45% { clip: rect(25px, 9999px, 66px, 0); }
+  50% { clip: rect(57px, 9999px, 98px, 0); }
+  55% { clip: rect(5px, 9999px, 46px, 0); }
+  60% { clip: rect(82px, 9999px, 31px, 0); }
+  65% { clip: rect(54px, 9999px, 27px, 0); }
+  70% { clip: rect(28px, 9999px, 99px, 0); }
+  75% { clip: rect(45px, 9999px, 69px, 0); }
+  80% { clip: rect(23px, 9999px, 85px, 0); }
+  85% { clip: rect(54px, 9999px, 84px, 0); }
+  90% { clip: rect(45px, 9999px, 47px, 0); }
+  95% { clip: rect(37px, 9999px, 20px, 0); }
+  100% { clip: rect(4px, 9999px, 91px, 0); }
+}
+
+/* Star shape */
+.star-shape {
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+}
+
+/* Skewed sections */
+.skew-section {
+  transform: skewY(-3deg);
+}
+
+.skew-section > * {
+  transform: skewY(3deg);
+}
