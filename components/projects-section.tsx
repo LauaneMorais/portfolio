@@ -189,7 +189,7 @@ export function ProjectsSection() {
                   </motion.div>
 
                   <motion.div
-                    className="absolute top-3 right-3 sm:top-4 sm:right-4 px-2 py-1 sm:px-3"
+                    className="absolute top-3 right-3 sm:top-4 sm:right-4 px-2 py-1 sm:px-3 z-20"
                     style={{ backgroundColor: project.color }}
                   >
                     <span className="font-[family-name:var(--font-space)] text-[10px] sm:text-xs text-white font-bold">
